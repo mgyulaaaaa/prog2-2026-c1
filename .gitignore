@@ -1,5 +1,5 @@
 __pycache__
-.ipynb_chackpoints
+.ipynb_checkpoints
 *.csv
 *.csv.gz
 .venv
