@@ -24,4 +24,5 @@ jobs:
         make comp-table
     - name: Commit results
       run: |
+        git config --global user.email "leo@dumbartonserum.com";git config --global user.name "Leo Dumbarton"
         git add runs && git commit -m "update results" && git push
