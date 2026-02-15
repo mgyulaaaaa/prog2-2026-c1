@@ -28,7 +28,10 @@ if __name__ == "__main__":
     for (ni, nq), gdf in pd.DataFrame(recs).groupby(gcols, sort=True):
         lines.append(f"## Inputs: {int(ni)}, Queries {int(nq)}")
         lines.append(
-            gdf.drop(gcols, axis=1).sort_values("compute").to_markdown(index=False)
+            gdf.drop(gcols, axis=1)
+            .sort_values("compute")
+            .drop_duplicates("solution")
+            .to_markdown(index=False)
         )
 
     Path("runs/README.md").write_text("\n\n".join(lines))
