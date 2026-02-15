@@ -1,0 +1,27 @@
+name: Run Solutions
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+    - name: Run solutions
+      run: |
+        make run-all
+    - name: Create Comparison Table
+      run: |
+        make comp-table
+    - name: Commit results
+      run: |
+        git add runs && git commit -m "update results" && git push
