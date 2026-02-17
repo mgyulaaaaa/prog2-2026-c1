@@ -6,8 +6,8 @@ query_df = pd.read_csv("query.csv")
 out = []
 for idx, row in query_df.iterrows():
 
-    diffs = df[["x", "y"]] - row
-    squares = diffs**2
+    diffsy = df[["x", "y"]] - row
+    squares = diffsy**2
     dists = squares.sum(axis=1) ** 0.5
     sorted_dists = dists.sort_values()
 
