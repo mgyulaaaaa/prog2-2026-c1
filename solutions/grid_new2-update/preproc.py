@@ -25,8 +25,8 @@ np.savez_compressed('global_movies.npz',
 
 # 2. Háló (Grid) generálása
 n = 50 
-x_min, x_max = -13, 13
-y_min, y_max = -13, 13
+x_min, x_max = -11.5, 12
+y_min, y_max = -11, 9.5
 x_step = (x_max - x_min) / n
 y_step = (y_max - y_min) / n
 
